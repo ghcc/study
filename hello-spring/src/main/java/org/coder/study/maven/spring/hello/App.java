@@ -24,7 +24,7 @@ public class App
 	};
 
 	/**
-	 * a simple app--from master
+	 * a simple app--from t3
 	 * 
 	 * @param args
 	 */
