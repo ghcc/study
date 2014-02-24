@@ -22,6 +22,11 @@ public class App
 			
 		};
 	};
+
+	/**
+	 * a simple app
+	 * @param args
+	 */
     public static void main( String[] args )
     {
     	
