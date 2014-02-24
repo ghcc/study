@@ -24,7 +24,7 @@ public class App
 	};
 
 	/**
-	 * a simple app--from t3-2-2
+	 * a simple app--from master
 	 * @param args
 	 */
     public static void main( String[] args )
