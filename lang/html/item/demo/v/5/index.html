@@ -14,14 +14,16 @@ body {
 }
 
 .page {
-	width: 1008px;
-	height: 190px;
+	width: 988px;
+	height: 205px;
 	overflow: hidden;
+	*overflow-x: scroll;
 	position: relative;/*ie6,ie7 bug*/
 }
 
 .page-inner {
 	margin-left: -0px;
+	width: 10000px;
 }
 
 .page-left, .page-right {
@@ -34,15 +36,15 @@ body {
 }
 
 .page-left {
-	left: 5px;
+	left: 7px;
 }
 .page-right {
-	left: 970px;
+	left: 952px;
 }
 
 .item {
-	width: 252px;
-	height: 185px;
+	width: 247px;
+	height: 186px;
 	background: url(img/item-background.png);
 	float: left;
 }
@@ -90,19 +92,29 @@ body {
 	left: 200px;
 }
 
-.score-2 {
-	top: 47px;
-	left: 100px;
+.score-2-container {
+	top: 43px;
+	width: 190px;
 	z-index: 1;
 }
-
+.score-2 {
+	width: 100%;
+	text-align: right;
+	z-index: 1;
+	color: white;
+}
 .base-score-2 {
-	top: 30px;
-	left: 200px;
+	top: 25px;
+	left: 205px;
+}
+
+.score-1, .base-score-1, .score-2, .base-score-2 {
+	font-family: "Square721 BT";
+	font-weight: bolder;
 }
 
 .score-line {
-	top: 9px;
+	top: 3px;
 	left: 11px;
 	width: 190px;
 }
@@ -136,7 +148,9 @@ body {
 				<div class="field-unit">万元</div>
 				<div class="score-1">25</div>
 				<div class="base-score-1">25</div>
-				<div class="score-2">25</div>
+				<div class="score-2-container">
+					<div class="score-2">25</div>
+				</div>
 				<div class="base-score-2">25</div>
 				<div class="score-line">
 					<img src="img/score-line.png" />
@@ -151,7 +165,9 @@ body {
 				<div class="field-unit">万元</div>
 				<div class="score-1">25</div>
 				<div class="base-score-1">25</div>
-				<div class="score-2">25</div>
+				<div class="score-2-container">
+					<div class="score-2">25</div>
+				</div>
 				<div class="base-score-2">25</div>
 				<div class="score-line">
 					<img src="img/score-line.png" />
@@ -167,7 +183,9 @@ body {
 				<div class="field-unit">&nbsp;</div>
 				<div class="score-1">4.5</div>
 				<div class="base-score-1">5</div>
-				<div class="score-2">4.5</div>
+				<div class="score-2-container">
+					<div style="width: 90%;" class="score-2">4.5</div>
+				</div>
 				<div class="base-score-2">5</div>
 				<div class="score-line">
 					<img style="width: 90%;" src="img/score-line.png" />
@@ -182,7 +200,9 @@ body {
 				<div class="field-unit">&nbsp;</div>
 				<div class="score-1">9</div>
 				<div class="base-score-1">10</div>
-				<div class="score-2">9</div>
+				<div class="score-2-container">
+					<div style="width: 90%;" class="score-2">9</div>
+				</div>
 				<div class="base-score-2">10</div>
 				<div class="score-line">
 					<img style="width: 90%;" src="img/score-line.png" />
@@ -197,7 +217,9 @@ body {
 				<div class="field-unit">万元</div>
 				<div class="score-1">25</div>
 				<div class="base-score-1">25</div>
-				<div class="score-2">25</div>
+				<div class="score-2-container">
+					<div class="score-2">25</div>
+				</div>
 				<div class="base-score-2">25</div>
 				<div class="score-line">
 					<img src="img/score-line.png" />
@@ -211,7 +233,9 @@ body {
 				<div class="field-unit">&nbsp;</div>
 				<div class="score-1">5</div>
 				<div class="base-score-1">5</div>
-				<div class="score-2">5</div>
+				<div class="score-2-container">
+					<div class="score-2">5</div>
+				</div>
 				<div class="base-score-2">5</div>
 				<div class="score-line">
 					<img src="img/score-line.png" />
@@ -225,7 +249,9 @@ body {
 				<div class="field-unit">&nbsp;</div>
 				<div class="score-1">9</div>
 				<div class="base-score-1">10</div>
-				<div class="score-2">9</div>
+				<div class="score-2-container">
+					<div style="width: 90%;" class="score-2">9</div>
+				</div>
 				<div class="base-score-2">10</div>
 				<div class="score-line">
 					<img style="width: 90%;" src="img/score-line.png" />
@@ -239,7 +265,9 @@ body {
 				<div class="field-unit">&nbsp;</div>
 				<div class="score-1">9</div>
 				<div class="base-score-1">10</div>
-				<div class="score-2">9</div>
+				<div class="score-2-container">
+					<div style="width: 90%;" class="score-2">9</div>
+				</div>
 				<div class="base-score-2">10</div>
 				<div class="score-line">
 					<img style="width: 90%;" src="img/score-line.png" />
@@ -249,33 +277,80 @@ body {
 		</div>
 	</div>
 	<script>
+	
+		var isModing = false;
+		
 		$(".page-left").click(function() {
 
-			$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 252 + 'px');
+			if (isModing) {
+				return;
+			}
 			
-			//修改margin后，ie6,7下触发重新布局，使生效
-			$(".page-inner").css("zoom", 1);
-			
-			setPageLeftRigthShowOrHide(".page-right");
+			var times = 0;
+			var id = setInterval(function() {
+				
+				isModing = true;
+				
+				$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 25 + 'px');
+				//修改margin后，ie6,7下触发重新布局，使生效
+				$(".page-inner").css("zoom", 1);
+				
 
+				times ++;
+				if (times > 9) {
+					clearInterval(id);
+					
+					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 3 + 'px');
+					$(".page-inner").css("zoom", 1);
+					
+					setPageLeftRigthShowOrHide(".page-right");
+					
+					isModing = false;
+				}
+				
+			}, 100);
+			
 		});
 		$(".page-right").click(function() {
+			
+			if (isModing) {
+				return;
+			}
+			
+			var times = 0;
+			var id = setInterval(function() {
 
-			$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 252 + 'px');
+				isModing = true;
+				
+				$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 25 + 'px');
+				//修改margin后，ie6,7下触发重新布局，使生效
+				$(".page-inner").css("zoom", 1);
+				
+				times ++;
+				if (times > 9) {
+					clearInterval(id);
+				
+					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 3 + 'px');
+					//修改margin后，ie6,7下触发重新布局，使生效
+					$(".page-inner").css("zoom", 1);
+					
+					setPageLeftRigthShowOrHide(".page-left");
+					
+					isModing = false;
+					
+				}
+				
+			}, 100);
 			
-			//修改margin后，ie6,7下触发重新布局，使生效
-			$(".page-inner").css("zoom", 1);
 			
-			setPageLeftRigthShowOrHide(".page-left");
 		});
 		function setPageLeftRigthShowOrHide(selector) {
 
 			//右边箭头显示控制（右边还有）
-			if ($(".page-inner .item").length + parseInt($(".page-inner").css("margin-left")) / 252 > 4) {
+			if ($(".page-inner .item").length + parseInt($(".page-inner").css("margin-left")) / 247 > 4) {
 				$(".page-left").show();
 
 				$(selector + " img.hover").hide();
-				$(selector + " img.off").show();
 			} else {
 				$(".page-left").hide();
 			}
@@ -284,14 +359,17 @@ body {
 				$(".page-right").show();
 
 				$(selector + " img.hover").hide();
-				$(selector + " img.off").show();
 			} else {
 				$(".page-right").hide();
 			}
 		}
 
 		$(".page-left,.page-right").hover(function() {
-			$(this).children("img").toggle();
+			$(this).children("img.hover").show();
+			$(this).children("img.off").hide();
+		},function() {
+			$(this).children("img.hover").hide();
+			$(this).children("img.off").show();
 		});
 
 		setPageLeftRigthShowOrHide(".page");
