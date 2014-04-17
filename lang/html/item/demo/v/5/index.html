@@ -291,7 +291,7 @@ body {
 				
 				isModing = true;
 				
-				$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 25 + 'px');
+				$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 25 + 'px');
 				//修改margin后，ie6,7下触发重新布局，使生效
 				$(".page-inner").css("zoom", 1);
 				
@@ -300,10 +300,10 @@ body {
 				if (times > 9) {
 					clearInterval(id);
 					
-					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 3 + 'px');
+					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 3 + 'px');
 					$(".page-inner").css("zoom", 1);
 					
-					setPageLeftRigthShowOrHide(".page-right");
+					setPageLeftRigthShowOrHide(".page-left");
 					
 					isModing = false;
 				}
@@ -322,7 +322,7 @@ body {
 
 				isModing = true;
 				
-				$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 25 + 'px');
+				$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 25 + 'px');
 				//修改margin后，ie6,7下触发重新布局，使生效
 				$(".page-inner").css("zoom", 1);
 				
@@ -330,11 +330,11 @@ body {
 				if (times > 9) {
 					clearInterval(id);
 				
-					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 3 + 'px');
+					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 3 + 'px');
 					//修改margin后，ie6,7下触发重新布局，使生效
 					$(".page-inner").css("zoom", 1);
 					
-					setPageLeftRigthShowOrHide(".page-left");
+					setPageLeftRigthShowOrHide(".page-right");
 					
 					isModing = false;
 					
@@ -348,19 +348,19 @@ body {
 
 			//右边箭头显示控制（右边还有）
 			if ($(".page-inner .item").length + parseInt($(".page-inner").css("margin-left")) / 247 > 4) {
-				$(".page-left").show();
-
-				$(selector + " img.hover").hide();
-			} else {
-				$(".page-left").hide();
-			}
-			//左边箭头显示控制（左边还有）
-			if (-parseInt($(".page-inner").css("margin-left")) > 0) {
 				$(".page-right").show();
 
 				$(selector + " img.hover").hide();
 			} else {
 				$(".page-right").hide();
+			}
+			//左边箭头显示控制（左边还有）
+			if (-parseInt($(".page-inner").css("margin-left")) > 0) {
+				$(".page-left").show();
+
+				$(selector + " img.hover").hide();
+			} else {
+				$(".page-left").hide();
 			}
 		}
 
