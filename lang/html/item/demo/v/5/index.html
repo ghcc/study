@@ -12,38 +12,32 @@ body {
 	margin: 0px;
 	padding: 0px;
 }
-div {
-	//overflow: hidden;
-}
 
 .page {
-	width: 1024px;
+	width: 1008px;
 	height: 190px;
 	overflow: hidden;
+	position: relative;/*ie6,ie7 bug*/
 }
+
 .page-inner {
 	margin-left: -0px;
-	overflow: hidden;
+}
+
+.page-left, .page-right {
+	position: absolute;/*  relative属性在ie多个版本中移动偏移不一致*/
+	margin-bottom: -29px;
+	top: 5px;
+	z-index: 2;
+	width: 29px;
+	height: 29px;
 }
 
 .page-left {
-	position: absolute;
-	margin-bottom: -29px;
 	left: 5px;
-	top: 5px;
-	z-index: 2;
-	width: 29px;
-	height: 29px;
 }
-
 .page-right {
-	position: absolute;
-	margin-bottom: -29px;
 	left: 970px;
-	top: 5px;
-	z-index: 2;
-	width: 29px;
-	height: 29px;
 }
 
 .item {
@@ -51,11 +45,10 @@ div {
 	height: 185px;
 	background: url(img/item-background.png);
 	float: left;
-	display: inline-block;
 }
 
 .item div {
-	//position: relative;
+	position: relative;
 }
 
 .item-name {
@@ -66,7 +59,6 @@ div {
 	font-family: "黑体";
 	font-weight: bolder;
 	color: #00C;
-	position: relative;
 }
 
 .item .field-value {
@@ -77,7 +69,6 @@ div {
 	font-size: 18px;
 	width: 50%;
 	text-align: right;
-	position: relative;
 }
 
 .item .field-unit {
@@ -86,7 +77,6 @@ div {
 	font-weight: bolder;
 	font-size: 14px;
 	width: 20%;
-	position: relative;
 }
 
 .score-1 {
@@ -98,33 +88,28 @@ div {
 .base-score-1 {
 	top: 20px;
 	left: 200px;
-	position: relative;
 }
 
 .score-2 {
 	top: 47px;
 	left: 100px;
 	z-index: 1;
-	position: relative;
 }
 
 .base-score-2 {
 	top: 30px;
 	left: 200px;
-	position: relative;
 }
 
 .score-line {
 	top: 9px;
 	left: 11px;
 	width: 190px;
-	position: relative;
 }
 
 .score-line img {
 	width: 100%;
 	height: 20px;
-	position: relative;
 }
 
 </style>
@@ -267,14 +252,19 @@ div {
 		$(".page-left").click(function() {
 
 			$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 252 + 'px');
-// 			$(".page-inner").width($(".page-inner").width());
+			
+			//修改margin后，ie6,7下触发重新布局，使生效
+			$(".page-inner").css("zoom", 1);
+			
 			setPageLeftRigthShowOrHide(".page-right");
 
 		});
 		$(".page-right").click(function() {
 
 			$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 252 + 'px');
-// 			$(".page-inner").addClass("repain");
+			
+			//修改margin后，ie6,7下触发重新布局，使生效
+			$(".page-inner").css("zoom", 1);
 			
 			setPageLeftRigthShowOrHide(".page-left");
 		});
@@ -300,11 +290,15 @@ div {
 			}
 		}
 
-		setPageLeftRigthShowOrHide(".page");
-
 		$(".page-left,.page-right").hover(function() {
 			$(this).children("img").toggle();
 		});
+
+		setPageLeftRigthShowOrHide(".page");
+		
+		//修改margin后，ie6,7下触发重新布局，使生效
+		$(".page-inner,.page").css("zoom", 1);
+
 	</script>
 </body>
 </html>
