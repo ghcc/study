@@ -1,0 +1,310 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>指标展示</title>
+
+<script src="js/jquery-1.4.2.min.js"></script>
+<style type="text/css">
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+div {
+	//overflow: hidden;
+}
+
+.page {
+	width: 1024px;
+	height: 190px;
+	overflow: hidden;
+}
+.page-inner {
+	margin-left: -0px;
+	overflow: hidden;
+}
+
+.page-left {
+	position: absolute;
+	margin-bottom: -29px;
+	left: 5px;
+	top: 5px;
+	z-index: 2;
+	width: 29px;
+	height: 29px;
+}
+
+.page-right {
+	position: absolute;
+	margin-bottom: -29px;
+	left: 970px;
+	top: 5px;
+	z-index: 2;
+	width: 29px;
+	height: 29px;
+}
+
+.item {
+	width: 252px;
+	height: 185px;
+	background: url(img/item-background.png);
+	float: left;
+	display: inline-block;
+}
+
+.item div {
+	//position: relative;
+}
+
+.item-name {
+	text-align: center;
+	top: 12px;
+	left: 0px;
+	font-size: 18px;
+	font-family: "黑体";
+	font-weight: bolder;
+	color: #00C;
+	position: relative;
+}
+
+.item .field-value {
+	top: 28px;
+	left: 60px;
+	font-family: "Square721 BT";
+	font-weight: bolder;
+	font-size: 18px;
+	width: 50%;
+	text-align: right;
+	position: relative;
+}
+
+.item .field-unit {
+	top: 10px;
+	left: 200px;
+	font-weight: bolder;
+	font-size: 14px;
+	width: 20%;
+	position: relative;
+}
+
+.score-1 {
+	top: 37px;
+	left: 80px;
+	position: relative;
+}
+
+.base-score-1 {
+	top: 20px;
+	left: 200px;
+	position: relative;
+}
+
+.score-2 {
+	top: 47px;
+	left: 100px;
+	z-index: 1;
+	position: relative;
+}
+
+.base-score-2 {
+	top: 30px;
+	left: 200px;
+	position: relative;
+}
+
+.score-line {
+	top: 9px;
+	left: 11px;
+	width: 190px;
+	position: relative;
+}
+
+.score-line img {
+	width: 100%;
+	height: 20px;
+	position: relative;
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="page">
+
+		<div class="page-left">
+			<img class="off" src="img/page-left-gray.png" /> <img class="hover" src="img/page-left-blue.png" style="display: none;" />
+		</div>
+
+		<div class="page-right">
+			<img class="off" src="img/page-right-gray.png" /> <img class="hover" src="img/page-right-blue.png" style="display: none;" />
+		</div>
+
+		<div class="page-inner">
+			<div class="item">
+				<div class="item-name">利润总额</div>
+				<div class="field-value">104,329.71</div>
+
+				<div class="field-unit">万元</div>
+				<div class="score-1">25</div>
+				<div class="base-score-1">25</div>
+				<div class="score-2">25</div>
+				<div class="base-score-2">25</div>
+				<div class="score-line">
+					<img src="img/score-line.png" />
+				</div>
+			</div>
+
+
+			<div class="item">
+				<div class="item-name">经济增加值</div>
+				<div class="field-value">4,329.71</div>
+
+				<div class="field-unit">万元</div>
+				<div class="score-1">25</div>
+				<div class="base-score-1">25</div>
+				<div class="score-2">25</div>
+				<div class="base-score-2">25</div>
+				<div class="score-line">
+					<img src="img/score-line.png" />
+				</div>
+			</div>
+
+
+
+			<div class="item">
+				<div class="item-name">流动资产周转率</div>
+				<div class="field-value">99%</div>
+
+				<div class="field-unit">&nbsp;</div>
+				<div class="score-1">4.5</div>
+				<div class="base-score-1">5</div>
+				<div class="score-2">4.5</div>
+				<div class="base-score-2">5</div>
+				<div class="score-line">
+					<img style="width: 90%;" src="img/score-line.png" />
+				</div>
+			</div>
+
+
+			<div class="item">
+				<div class="item-name">净资产收益率</div>
+				<div class="field-value">15%</div>
+
+				<div class="field-unit">&nbsp;</div>
+				<div class="score-1">9</div>
+				<div class="base-score-1">10</div>
+				<div class="score-2">9</div>
+				<div class="base-score-2">10</div>
+				<div class="score-line">
+					<img style="width: 90%;" src="img/score-line.png" />
+				</div>
+			</div>
+
+
+			<div class="item">
+				<div class="item-name">度电可控固定成本</div>
+				<div class="field-value">104,329.71</div>
+
+				<div class="field-unit">万元</div>
+				<div class="score-1">25</div>
+				<div class="base-score-1">25</div>
+				<div class="score-2">25</div>
+				<div class="base-score-2">25</div>
+				<div class="score-line">
+					<img src="img/score-line.png" />
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="item-name">综合厂用电率</div>
+				<div class="field-value">1%</div>
+
+				<div class="field-unit">&nbsp;</div>
+				<div class="score-1">5</div>
+				<div class="base-score-1">5</div>
+				<div class="score-2">5</div>
+				<div class="base-score-2">5</div>
+				<div class="score-line">
+					<img src="img/score-line.png" />
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="item-name">发电耗水率</div>
+				<div class="field-value">1%</div>
+
+				<div class="field-unit">&nbsp;</div>
+				<div class="score-1">9</div>
+				<div class="base-score-1">10</div>
+				<div class="score-2">9</div>
+				<div class="base-score-2">10</div>
+				<div class="score-line">
+					<img style="width: 90%;" src="img/score-line.png" />
+				</div>
+			</div>
+
+			<div class="item">
+				<div class="item-name">水量利用率</div>
+				<div class="field-value">1%</div>
+
+				<div class="field-unit">&nbsp;</div>
+				<div class="score-1">9</div>
+				<div class="base-score-1">10</div>
+				<div class="score-2">9</div>
+				<div class="base-score-2">10</div>
+				<div class="score-line">
+					<img style="width: 90%;" src="img/score-line.png" />
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script>
+		$(".page-left").click(function() {
+
+			$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 252 + 'px');
+// 			$(".page-inner").width($(".page-inner").width());
+			setPageLeftRigthShowOrHide(".page-right");
+
+		});
+		$(".page-right").click(function() {
+
+			$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) + 252 + 'px');
+// 			$(".page-inner").addClass("repain");
+			
+			setPageLeftRigthShowOrHide(".page-left");
+		});
+		function setPageLeftRigthShowOrHide(selector) {
+
+			//右边箭头显示控制（右边还有）
+			if ($(".page-inner .item").length + parseInt($(".page-inner").css("margin-left")) / 252 > 4) {
+				$(".page-left").show();
+
+				$(selector + " img.hover").hide();
+				$(selector + " img.off").show();
+			} else {
+				$(".page-left").hide();
+			}
+			//左边箭头显示控制（左边还有）
+			if (-parseInt($(".page-inner").css("margin-left")) > 0) {
+				$(".page-right").show();
+
+				$(selector + " img.hover").hide();
+				$(selector + " img.off").show();
+			} else {
+				$(".page-right").hide();
+			}
+		}
+
+		setPageLeftRigthShowOrHide(".page");
+
+		$(".page-left,.page-right").hover(function() {
+			$(this).children("img").toggle();
+		});
+	</script>
+</body>
+</html>
