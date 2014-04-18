@@ -3,6 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
 <title>指标展示</title>
 
 <script src="js/jquery-1.4.2.min.js"></script>
@@ -126,6 +128,13 @@ body {
 
 </style>
 
+<!--[if lte IE 8]>
+	<style>
+		.score-line {
+			top: 7px;
+		}
+	</style>
+<![endif]--> 
 </head>
 
 <body>
@@ -303,7 +312,7 @@ body {
 					$(".page-inner").css("margin-left", parseInt($(".page-inner").css("margin-left")) - 3 + 'px');
 					$(".page-inner").css("zoom", 1);
 					
-					setPageLeftRigthShowOrHide(".page-left");
+					setPageLeftRigthShowOrHide(".page-right");
 					
 					isModing = false;
 				}
@@ -334,7 +343,7 @@ body {
 					//修改margin后，ie6,7下触发重新布局，使生效
 					$(".page-inner").css("zoom", 1);
 					
-					setPageLeftRigthShowOrHide(".page-right");
+					setPageLeftRigthShowOrHide(".page-left");
 					
 					isModing = false;
 					
